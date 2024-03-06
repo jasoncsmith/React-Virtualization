@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# React Virtualization List
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Why Virtualization?
+Virtualization allows a UI to render large datasets by only rendering the portion of data that is visible to the user. This prevents the browser from freezing when it encounters too many DOM nodes.
 
-### `npm start`
+## About this Example
+In this virtualization example we are rendering a list of 370,105 words from a dictionary --  Source: [GitHub Repo](https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt). You can configure the number of words you would like to render and the height of the list-item. At any one time only the number of words that you specify will be rendered to the DOM, allowing you to traverse all 370,105 words without your browser locking up.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Side note: I did notice that Firefox would not let me set the height of the `ul` element larger than `17,895,697px`. Setting the height correctly is what allows that scrolling to calculate where it is in the list. If you get the error, you may need to reduce your item height for proper rendering.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## To run locally
 
-### `npm test`
+In the root directory, you can run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm run init`
 
-### `npm run build`
+Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### This App uses
+- React
+- Styled Components
+- Typescript
