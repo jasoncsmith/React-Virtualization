@@ -19,6 +19,8 @@ In the root directory, you can run:
 
 Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+or go to live GH Pages example [https://jasoncsmith.github.io/React-Virtualization/build/index.html](Live Example)
+
 #### This App uses
 - React
 - Styled Components
