@@ -3,12 +3,10 @@ const DO_NOT_EXCEED = 17895697;
 const ListWrapper = ({
     children,
     count,
-    numToShow,
     itemHeight,
 }: {
     children: React.ReactNode;
     count: number;
-    numToShow: number;
     itemHeight: number;
 }) => {
     if (count * itemHeight >= DO_NOT_EXCEED) {
@@ -24,7 +22,13 @@ const ListWrapper = ({
 
     return (
         <div className="content">
-            <h3>{formatNumber(count)} Words</h3>
+            <h3
+                style={{
+                    alignSelf: 'flex-start',
+                }}
+            >
+                {formatNumber(count)} Words
+            </h3>
             {children}
         </div>
     );

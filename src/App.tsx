@@ -19,7 +19,6 @@ function App() {
 
             <List.ListContainer
                 count={dictionary.length}
-                numToShow={defaults.numToShow}
                 itemHeight={defaults.itemHeight}
             >
                 <List

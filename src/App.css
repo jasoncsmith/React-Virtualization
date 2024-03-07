@@ -10,7 +10,11 @@ body * {
 .app {
     background: #ccc;
     min-height: 100vh;
-    padding: 20px 40px;
+    padding: 20px 10px;
+
+    @media only screen and (min-width: 576px) {
+        padding: 20px 40px;
+    }
 }
 
 .header {
@@ -24,8 +28,8 @@ h1 {
 
 .content {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     height: calc(100vh - 90px);
 }
