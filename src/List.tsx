@@ -47,7 +47,9 @@ const List = ({ items, itemHeight = 30, numToShow = 15 }: ListProps) => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const ref = useRef<null | HTMLDivElement>(null);
     const timeoutId = useRef<null | NodeJS.Timeout>(null);
-    const index = Math.floor(scrollPosition / itemHeight);
+    const index =
+        scrollPosition <= 0 ? 0 : Math.floor(scrollPosition / itemHeight);
+    // mobile scroll can go in the negative
 
     useEffect(() => {
         const el = ref.current;
@@ -72,9 +74,6 @@ const List = ({ items, itemHeight = 30, numToShow = 15 }: ListProps) => {
 
     return (
         <>
-            <code>
-                {index}, {scrollPosition}
-            </code>
             <ScrollWrapper
                 itemHeight={itemHeight}
                 numToShow={numToShow}
