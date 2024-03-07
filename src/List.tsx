@@ -36,11 +36,7 @@ const UlWrapper = styled.ul`
     margin: 0;
     padding: 0;
     position: relative;
-    height: ${(props: UlWrapperProps) => {
-        console.log(props.itemCount * props.itemHeight);
-
-        return props.itemCount * props.itemHeight;
-    }}px;
+    height: ${(props: UlWrapperProps) => props.itemCount * props.itemHeight}px;
 `;
 
 export const formatNumber = (num: number) => {
@@ -52,7 +48,6 @@ const List = ({ items, itemHeight = 30, numToShow = 15 }: ListProps) => {
     const ref = useRef<null | HTMLDivElement>(null);
     const timeoutId = useRef<null | NodeJS.Timeout>(null);
     const index = Math.floor(scrollPosition / itemHeight);
-    console.log(items.length);
 
     useEffect(() => {
         const el = ref.current;
@@ -66,38 +61,43 @@ const List = ({ items, itemHeight = 30, numToShow = 15 }: ListProps) => {
             timeoutId.current = null;
         }
 
-        function throttle() {
+        function throttledScroll() {
             timeoutId.current = setTimeout(handleScroll, 50);
         }
 
-        el.addEventListener('scroll', throttle);
+        el.addEventListener('scroll', throttledScroll);
 
-        return () => el.removeEventListener('scroll', throttle);
+        return () => el.removeEventListener('scroll', throttledScroll);
     }, []);
 
     return (
-        <ScrollWrapper
-            itemHeight={itemHeight}
-            numToShow={numToShow}
-            ref={ref}
-        >
-            <UlWrapper
-                itemCount={items.length}
+        <>
+            <code>
+                {index}, {scrollPosition}
+            </code>
+            <ScrollWrapper
                 itemHeight={itemHeight}
+                numToShow={numToShow}
+                ref={ref}
             >
-                {items
-                    .slice(index, index + numToShow)
-                    .map((word: string, idx: number) => (
-                        <Item
-                            position={index * itemHeight + idx * itemHeight}
-                            itemHeight={itemHeight}
-                            key={word}
-                        >
-                            {`${formatNumber(index + idx + 1)}: ${word}`}
-                        </Item>
-                    ))}
-            </UlWrapper>
-        </ScrollWrapper>
+                <UlWrapper
+                    itemCount={items.length}
+                    itemHeight={itemHeight}
+                >
+                    {items
+                        .slice(index, index + numToShow)
+                        .map((word: string, idx: number) => (
+                            <Item
+                                position={index * itemHeight + idx * itemHeight}
+                                itemHeight={itemHeight}
+                                key={word}
+                            >
+                                {`${formatNumber(index + idx + 1)}: ${word}`}
+                            </Item>
+                        ))}
+                </UlWrapper>
+            </ScrollWrapper>
+        </>
     );
 };
 
