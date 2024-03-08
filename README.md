@@ -1,7 +1,6 @@
 # React Virtualization List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+Live @ GH Pages example [Live Example](https://jasoncsmith.github.io/React-Virtualization/build/index.html)
 
 ## Why Virtualization?
 Virtualization allows a UI to render large datasets by only rendering the portion of data that is visible to the user. This prevents the browser from freezing when it encounters too many DOM nodes.
