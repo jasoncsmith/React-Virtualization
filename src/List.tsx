@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import { useEffect, useRef, useState } from 'react';
+import { Dictionary } from './hooks/useDictionary';
 import ListContainer from './ListContainer';
 import { Item } from './Item';
 
 export interface ListProps {
-    items: string[];
+    items: Dictionary;
     numToShow?: number;
     itemHeight?: number;
 }

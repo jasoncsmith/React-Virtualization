@@ -1,6 +1,7 @@
 import React from 'react';
+import Loader from './Loader';
 import List from './List';
-import { useDictionary } from './hooks/useDictionary';
+import { Dictionary, useDictionary } from './hooks/useDictionary';
 import './App.css';
 
 const defaults = {
@@ -9,7 +10,7 @@ const defaults = {
 };
 
 function App() {
-    const dictionary = useDictionary();
+    const dictionary: Dictionary = useDictionary();
 
     return (
         <div className="app">
@@ -27,6 +28,7 @@ function App() {
                     items={dictionary}
                 />
             </List.ListContainer>
+            {!dictionary.length && <Loader />}
         </div>
     );
 }
